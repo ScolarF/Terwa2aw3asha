@@ -19,21 +19,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const floatingItem = document.createElement('div');
             floatingItem.className = 'floating-item';
             floatingItem.textContent = foodEmojis[Math.floor(Math.random() * foodEmojis.length)];
-            
+
             // Random positioning
             floatingItem.style.left = `${Math.random() * 100}%`;
             floatingItem.style.top = `${100 + Math.random() * 50}%`; // Start below viewport
-            
+
             // Random animation duration (15-30 seconds)
             const duration = 15 + Math.random() * 15;
             floatingItem.style.animationDuration = `${duration}s`;
-            
+
             // Random delay to stagger animations
             floatingItem.style.animationDelay = `${Math.random() * 5}s`;
-            
+
             // Random horizontal offset
             floatingItem.style.setProperty('--drift-x', `${-50 + Math.random() * 100}px`);
-            
+
             container.appendChild(floatingItem);
         }
     }
@@ -96,13 +96,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const rect = item.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            
+
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-            
+
             const rotateX = (y - centerY) / 20;
             const rotateY = (centerX - x) / 20;
-            
+
             item.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
         });
 
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (target) {
                     const offset = 80; // Offset for fixed headers if any
                     const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
-                    
+
                     window.scrollTo({
                         top: targetPosition,
                         behavior: 'smooth'
@@ -136,28 +136,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // ====================================
     // INITIALIZE FLOATING DECORATIONS
     // ====================================
-    // Only create on desktop for performance
-    if (window.innerWidth > 768) {
-        createFloatingDecorations();
-    }
+    // Create on all devices (fewer items on mobile for performance)
+    createFloatingDecorations();
 
     // ====================================
     // PARALLAX EFFECT ON SCROLL
     // ====================================
     let ticking = false;
-    
+
     window.addEventListener('scroll', () => {
         if (!ticking) {
             window.requestAnimationFrame(() => {
                 const scrolled = window.pageYOffset;
                 const floatingItems = document.querySelectorAll('.floating-item');
-                
+
                 floatingItems.forEach((item, index) => {
                     const speed = 0.5 + (index % 3) * 0.2;
                     const yPos = -(scrolled * speed);
                     item.style.transform = `translateY(${yPos}px)`;
                 });
-                
+
                 ticking = false;
             });
             ticking = true;
