@@ -26,15 +26,7 @@
                 </ul>
             </nav>
             <div class="logo-container">
-                <div class="logo-placeholder">
-                    <div class="logo-circle">
-                        <div class="logo-content">
-                            <span class="logo-top">TERWE2A</span>
-                            <div class="logo-icon">👨‍🍳</div>
-                            <span class="logo-bottom">BASHA</span>
-                        </div>
-                    </div>
-                </div>
+                <img src="logo.png" alt="Terwe2a w 3asha Logo" class="logo-image">
             </div>
             <h1 class="restaurant-name">ترويقة و عشا
                 <p class="tagline">Terwe2a w 3asha</p>
@@ -57,7 +49,7 @@
     <section class="story-section" id="about">
         <div class="container story-grid">
             <div class="story-text">
-                <h2>تجربة ترويعة و عاشة</h2>
+                <h2>تجربة ترويقة و عشاء</h2>
                 <p>
                     يجمع مطبخ <strong>Terwe2a w 3asha</strong> بين أصالة النكهات اللبنانية واللمسة العصرية
                     لتقديم ألذ أنواع الصاج، القلايط، الكرواسون، والحلويات. نختار مكوناتنا اليومية بعناية
@@ -95,7 +87,7 @@
             <section class="menu-section" id="saj">
                 <h2 class="section-title">
                     <span class="section-icon">🥙</span>
-                    SAJ (سج)
+                    SAJ (صاج)
                 </h2>
                 <div class="menu-grid">
                     <div class="menu-item">
@@ -646,26 +638,57 @@
         <div class="container contact-grid">
             <div class="contact-card">
                 <h2>تواصل معنا</h2>
-                <p>هاتف: <a href="tel:+9610000000">+961 00000000p>
-                        <p>بريد إلكتروني: <a href="mailto:info@terwe2a.com">info@terwe2a.com</a></p>
-                        <p>العنوان: طورا - الشارع العام </p>
-                        <div class="contact-buttons">
-                            <a href="tel:+9610000000" class="btn primary-btn">اتصل الآن</a>
-                            <a href="mailto:info@terwe2a.com" class="btn secondary-btn">أرسل بريداً</a>
-                        </div>
-            </div>
-            <div class="contact-card">
-                <h2>ساعات العمل</h2>
-                <ul class="hours-list">
-                    <li><span>يوميًا:</span> 7:00 صباحاً - 10:00 مساءً</li>
-                    <li><span>الجمعة:</span> 8:00 صباحاً - 11:00 مساءً</li>
-                </ul>
-                <div class="map-placeholder" aria-label="Map placeholder">
-                    خريطة الموقع
+                <p>هاتف: <a href="https://wa.me/96181079758" target="_blank" rel="noopener noreferrer"
+                        class="phone-link">81 079 758</a></p>
+                <p>العنوان: طورا - الشارع العام </p>
+                <div class="contact-buttons">
+                    <a href="https://wa.me/96181079758" target="_blank" rel="noopener noreferrer"
+                        class="btn whatsapp-btn">💬 واتساب</a>
                 </div>
+            </div>
+            <div class="contact-card location-card">
+                <h2>📍 موقعنا</h2>
+                <p class="location-coords">طورا - الشارع العام</p>
+                <button class="btn primary-btn" onclick="openLocationModal()">
+                    🗺️ عرض الموقع على الخريطة
+                </button>
+            </div>
+            <div class="contact-card developer-card">
+                <h2>👨‍💻 المطور</h2>
+                <p><strong>Scolar</strong></p>
+                <p>📞 81 079 758</p>
+                <a href="https://wa.me/96181079758" target="_blank" rel="noopener noreferrer" class="btn whatsapp-btn">
+                    💬 تواصل عبر واتساب
+                </a>
             </div>
         </div>
     </section>
+
+    <!-- Location Modal -->
+    <div id="locationModal" class="modal-overlay" onclick="closeLocationModal(event)">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>📍 موقعنا</h3>
+                <button class="modal-close" onclick="closeLocationModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3000!2d35.299758!3d33.293479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDE3JzM2LjUiTiAzNcKwMTcnNTkuMSJF!5e0!3m2!1sen!2s!4v1234567890"
+                        width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <div class="modal-location-info">
+                    <p><strong>الإحداثيات:</strong> طورا - الشارع العام</p>
+                    <a href="https://www.google.com/maps?q=33.293479,35.299758" target="_blank"
+                        rel="noopener noreferrer" class="btn primary-btn">
+                        🧭 فتح في Google Maps
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -674,7 +697,6 @@
                 <div class="footer-section">
                     <h3>Contact Us</h3>
                     <p>Phone: +961 XX XXX XXX</p>
-                    <p>Email: info@terwe2a.com</p>
                 </div>
                 <div class="footer-section">
                     <h3>Hours</h3>
@@ -690,7 +712,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Terwe2a w 3asha. All rights reserved.</p>
+                <p>&copy; 2025 SCOLAR ©. All rights reserved.</p>
             </div>
         </div>
     </footer>

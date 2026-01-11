@@ -177,3 +177,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, 5000);
 });
+
+// ====================================
+// LOCATION MODAL FUNCTIONS
+// ====================================
+function openLocationModal() {
+    const modal = document.getElementById('locationModal');
+    if (modal) {
+        modal.style.display = 'flex';
+        // Trigger reflow for animation
+        modal.offsetHeight;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scroll
+    }
+}
+
+function closeLocationModal(event) {
+    // Only close if clicking on overlay (not modal content) or close button
+    if (event && event.target !== event.currentTarget) {
+        return;
+    }
+    const modal = document.getElementById('locationModal');
+    if (modal) {
+        modal.classList.remove('active');
+        setTimeout(() => {
+            modal.style.display = 'none';
+            document.body.style.overflow = ''; // Restore scrolling
+        }, 300);
+    }
+}
+
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeLocationModal();
+    }
+});
